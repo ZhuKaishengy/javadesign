@@ -1,0 +1,55 @@
+package com.aisino.flyweight;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by zhukaishengy on 2018-3-13.
+ */
+public class ConnectionManager {
+
+    List<Connection> pool = null;
+    private int poolSize ;
+    private Connection connection;
+
+    public ConnectionManager(int poolSize, Connection connection) {
+        this.poolSize = poolSize;
+        this.connection = connection;
+
+        pool = new ArrayList<Connection>(poolSize);
+        for(int i = 0 ; i < poolSize; i++ ){
+            try {
+                Connection clone = this.deepClone();
+                pool.add(clone);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    public Connection deepClone() throws IOException, ClassNotFoundException {
+//        写入当前对象二进制流
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+        oos.writeObject(this.connection);
+//        读出二进制流产生新对象
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+        ObjectInputStream ois = new ObjectInputStream(bis);
+        return (Connection) ois.readObject();
+
+    }
+
+    public synchronized Connection getConnection(){
+        Connection conn = this.pool.get(0);
+        this.pool.remove(conn);
+        return conn;
+    }
+
+    public synchronized void releaseConnection(Connection conn){
+        this.pool.add(conn);
+    }
+}
