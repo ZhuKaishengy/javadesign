@@ -1,7 +1,9 @@
 package com.aisino.decorator;
 
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
 public class Decorator implements Sourceable {
 
@@ -11,12 +13,14 @@ public class Decorator implements Sourceable {
         this.source = source;
     }
 
+    @Override
     public void method1() {
         System.out.println("zks\n");
         source.method1();
         System.out.println("\nsjx");
     }
 
+    @Override
     public void method2() {
         System.out.println("haha");
     }

@@ -3,12 +3,12 @@ package com.aisino.facade;
 /**
  * Created by zhukaishengy on 2018-3-13.
  */
-public class Disk {
+class Disk {
 
-    public void startUp(){
+    void startUp(){
         System.out.println("Disk started");
     }
-    public void shutdown(){
+    void shutdown(){
         System.out.println("Disk shutdown");
     }
 }

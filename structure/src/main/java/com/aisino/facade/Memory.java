@@ -1,14 +1,16 @@
 package com.aisino.facade;
 
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
-public class Memory {
+class Memory {
 
-    public void startUp(){
+    void startUp(){
         System.out.println("Memory started");
     }
-    public void shutdown(){
+    void shutdown(){
         System.out.println("Memory shutdown");
     }
 }

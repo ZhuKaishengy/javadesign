@@ -1,12 +1,31 @@
 package com.aisino.observer;
 
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
 public interface Subject {
 
+    /**
+     * add
+     * @param o param
+     */
     void add(Observer o);
+
+    /**
+     * remove
+     * @param o
+     */
     void remove(Observer o);
+
+    /**
+     * notifyObservers
+     */
     void notifyObservers();
+
+    /**
+     * operate
+     */
     void operate();
 }

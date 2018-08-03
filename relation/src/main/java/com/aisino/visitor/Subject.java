@@ -1,21 +1,22 @@
 package com.aisino.visitor;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.experimental.Accessors;
+
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
-public class Subject {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Accessors(chain = true)
+class Subject {
+
     private String value;
-
-    public Subject(String value) {
-        this.value = value;
-    }
-
-    public String getValue() {
-
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 }

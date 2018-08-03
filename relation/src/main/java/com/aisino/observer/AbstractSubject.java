@@ -4,20 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
 public abstract class AbstractSubject implements Subject{
 
-    List<Observer> observers = new ArrayList<Observer>(2);
+    private List<Observer> observers = new ArrayList<>(2);
 
+    @Override
     public void add(Observer o) {
         observers.add(o);
     }
 
+    @Override
     public void remove(Observer o) {
         observers.remove(o);
     }
 
+    @Override
     public void notifyObservers() {
         for (Observer observer : observers) {
             observer.update();

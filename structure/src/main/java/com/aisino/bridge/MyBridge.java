@@ -1,10 +1,13 @@
 package com.aisino.bridge;
 
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
-public class MyBridge extends Bridge {
+public class MyBridge extends AbstractBridge {
 
+    @Override
     public void method(){
         super.getSourceable().method();
     }

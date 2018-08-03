@@ -1,28 +1,33 @@
 package com.aisino.state;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.experimental.Accessors;
+
+import java.util.Objects;
+
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
-public class Command {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Accessors(chain = true)
+class Command {
+
+    private static final String FIRST_METHOD = "first";
     private State state;
 
-    public State getState() {
-        return state;
-    }
-
-    public void setState(State state) {
-        this.state = state;
-    }
-
-    public Command(State state) {
-
-        this.state = state;
-    }
-    public void method(){
-        if(this.state.getStateVal().equals("first")){
+    void method(){
+        if (Objects.equals(FIRST_METHOD,this.state.getStateVal())) {
             state.method1();
-        }else{
-            state.method2();
+            return;
         }
+        state.method2();
     }
 }

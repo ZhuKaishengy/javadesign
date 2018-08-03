@@ -1,31 +1,28 @@
 package com.aisino.state;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.experimental.Accessors;
+
 /**
  * Created by zhukaishengy on 2018-3-13.
  */
-public class State {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Accessors(chain = true)
+class State {
+
     private String stateVal;
 
-    public State() {
-    }
-
-    public String getStateVal() {
-        return stateVal;
-    }
-
-    public void setStateVal(String stateVal) {
-        this.stateVal = stateVal;
-    }
-
-    public State(String stateVal) {
-
-        this.stateVal = stateVal;
-    }
-    public void method1(){
+    void method1(){
         System.out.println("method1 ...");
     }
 
-    public void method2(){
+    void method2(){
         System.out.println("method2 ...");
     }
 }

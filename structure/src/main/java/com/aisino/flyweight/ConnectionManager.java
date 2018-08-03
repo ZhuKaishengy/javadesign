@@ -5,16 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
-public class ConnectionManager {
+class ConnectionManager {
 
     List<Connection> pool = null;
-    private int poolSize ;
     private Connection connection;
 
-    public ConnectionManager(int poolSize, Connection connection) {
-        this.poolSize = poolSize;
+    ConnectionManager(int poolSize, Connection connection) {
         this.connection = connection;
 
         pool = new ArrayList<Connection>(poolSize);
@@ -22,16 +22,14 @@ public class ConnectionManager {
             try {
                 Connection clone = this.deepClone();
                 pool.add(clone);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
+            } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
     }
 
 
-    public Connection deepClone() throws IOException, ClassNotFoundException {
+    private Connection deepClone() throws IOException, ClassNotFoundException {
 //        写入当前对象二进制流
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
@@ -43,13 +41,13 @@ public class ConnectionManager {
 
     }
 
-    public synchronized Connection getConnection(){
+    synchronized Connection getConnection(){
         Connection conn = this.pool.get(0);
         this.pool.remove(conn);
         return conn;
     }
 
-    public synchronized void releaseConnection(Connection conn){
+    synchronized void releaseConnection(Connection conn){
         this.pool.add(conn);
     }
 }

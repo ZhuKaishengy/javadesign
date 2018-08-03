@@ -1,16 +1,19 @@
 package com.aisino.command;
 
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
 public class MyCommand implements Command {
 
     private Receiver receiver;
 
-    public MyCommand(Receiver receiver) {
+    MyCommand(Receiver receiver) {
         this.receiver = receiver;
     }
 
+    @Override
     public void exec() {
         receiver.action();
     }

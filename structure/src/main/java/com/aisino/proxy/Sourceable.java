@@ -1,9 +1,14 @@
 package com.aisino.proxy;
 
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
 public interface Sourceable {
 
+    /**
+     * 被代理对象处理的方法
+     */
     void method();
 }

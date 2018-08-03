@@ -1,24 +1,29 @@
 package com.aisino.composite;
 
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
-public class Tree implements Nodeable{
+public class Tree implements Nodeable {
 
-    TreeNode root = null;
+    private TreeNode root = null;
 
-    public Tree(String name) {
+    Tree(String name) {
         this.root = new TreeNode(name);
     }
 
+    @Override
     public void addNode(TreeNode td) {
         root.addNode(td);
     }
 
+    @Override
     public void removeNode(TreeNode td) {
         root.removeNode(td);
     }
 
+    @Override
     public void listChilden() {
         root.listChilden();
     }

@@ -3,10 +3,13 @@ package com.aisino.strategy;
 import java.util.List;
 
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
-public class Add extends AssistCalcul implements Icalculator {
+public class Add extends AbstractAssistCalcul implements Basecalculator {
 
+    @Override
     public int calcul(String str) {
         List<Integer> ins = super.mySplit(str);
         return ins.get(0)+ ins.get(1);

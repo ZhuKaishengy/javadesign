@@ -1,15 +1,22 @@
 package com.aisino.mediator;
 
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
-public class User1 extends User {
+class User1 extends AbstractUser {
 
-    public User1(Mediator mediator) {
+    User1(Mediator mediator) {
         super(mediator);
     }
 
+    @Override
     void work() {
         System.out.println("user1 work ...");
     }
 }
+
+
+
+

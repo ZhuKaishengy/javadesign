@@ -1,17 +1,19 @@
 package com.aisino.command;
 
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
 public class Sender {
 
     private Command command;
 
-    public Sender(Command command) {
+    Sender(Command command) {
         this.command = command;
     }
 
-    public void action(){
+    void action(){
         command.exec();
     }
 }

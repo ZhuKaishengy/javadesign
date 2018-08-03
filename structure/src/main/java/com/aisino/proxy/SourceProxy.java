@@ -1,16 +1,19 @@
 package com.aisino.proxy;
 
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
 public class SourceProxy implements Sourceable {
 
     private Source source;
 
-    public SourceProxy() {
+    SourceProxy() {
         this.source = new Source();
     }
 
+    @Override
     public void method() {
         this.before();
         this.source.method();

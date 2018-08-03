@@ -1,22 +1,22 @@
 package com.aisino.memento;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import lombok.experimental.Accessors;
+
 /**
- * Created by zhukaishengy on 2018-3-13.
+ *
+ * @author zhukaishengy
+ * @date 2018-3-13
  */
-public class Storage {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Accessors(chain = true)
+class Storage {
 
     private Memento memento;
-
-    public Storage(Memento memento) {
-        this.memento = memento;
-    }
-
-    public Memento getMemento() {
-
-        return memento;
-    }
-
-    public void setMemento(Memento memento) {
-        this.memento = memento;
-    }
 }
